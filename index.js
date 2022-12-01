@@ -16,17 +16,21 @@ function creatPassword() {
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
   const passwordlengt = 14;
-  let password = "";
+  password = "";
   for (let i = 0; i < passwordlengt; i++) {
     const randnum = Math.ceil(Math.random() * characters.length);
     password += characters.slice(randnum, randnum + 1);
   }
-
   inputEl.value = password;
+  copyMesEl.innerHTML = `${password} copied !`;
 }
-
 function copypassword() {
   inputEl.select();
   inputEl.setSelectionRange(0, 99999);
   navigator.clipboard.writeText(inputEl.value);
+  copyMesEl.classList.add("active");
+
+  setTimeout(() => {
+    copyMesEl.classList.remove("active");
+  }, 2000);
 }

@@ -62,17 +62,20 @@ body {
   color: rgb(87, 82, 82);
   border-radius: 10px;
   padding: 15px;
-  width: 200px;
+  width: 220px;
   text-align: center;
   position: fixed;
   bottom: 20px;
-  right: 20px;
+  right: -2000px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 15px;
+  transition: 2000ms ease-in-out;
 }
 
 .active {
-  right: -300px;
+  right: 100px;
+  transition: 400ms ease-in-out;
 }
