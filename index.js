@@ -1,15 +1,32 @@
 const btnEl = document.querySelector(".btn");
-const characters =
-  "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-// console.log();
-// console.log(num);
+const inputEl = document.getElementById("text");
+const copyEl = document.querySelector(".fa-copy");
+const copyMesEl = document.querySelector(".copy-Mes");
 
 btnEl.addEventListener("click", function () {
-  const num = Math.ceil(Math.random() * 62);
+  creatPassword();
+});
 
-  for (let i = 0; i < 16; i++) {
-    console.log(i);
+copyEl.addEventListener("click", function () {
+  copypassword();
+});
+
+function creatPassword() {
+  const characters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+  const passwordlengt = 14;
+  let password = "";
+  for (let i = 0; i < passwordlengt; i++) {
+    const randnum = Math.ceil(Math.random() * characters.length);
+    password += characters.slice(randnum, randnum + 1);
   }
 
-  // console.log(characters[num]);
-});
+  inputEl.value = password;
+}
+
+function copypassword() {
+  inputEl.select();
+  inputEl.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(inputEl.value);
+}
